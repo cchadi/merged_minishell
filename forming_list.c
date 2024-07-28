@@ -1,4 +1,5 @@
-#include "execution.h"
+#include "minishell.h"
+
 
 int nbr_of_arg(t_arg *p)
 {
@@ -43,7 +44,7 @@ void forming_list(t_ms **e, t_shell *shell)
         head->cmd = shell->cmd;
         head->infile = shell->in;
         head->outfile = shell->out;
-        head->arg = get_args(shell->argument);
+        head->arg = get_args(shell->args);
         i++;
         if (shell->next)
         {

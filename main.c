@@ -6,11 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:36:58 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 10:10:41 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:28:36 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "minishell.h"
 
 void    get_meta_chars(char *str, int *index, t_a9aw9o3 **shell)
 {
@@ -25,7 +25,7 @@ void    get_meta_chars(char *str, int *index, t_a9aw9o3 **shell)
     if (!buff)
         return ;
     ft_strlcpy(buff, str, (i + 1));
-    ft_lstadd_back(shell, ft_lstnew(buff, 0));
+    add_back_9aw9a3a(shell, lstnew_9aw9a3a(buff, 0));
 }
 
 void    get_none_quoted(char *str, int *index, t_a9aw9o3 **shell)
@@ -45,7 +45,7 @@ void    get_none_quoted(char *str, int *index, t_a9aw9o3 **shell)
     if (!buff)
         return ;
     ft_strlcpy(buff, str, (i + 1));
-    ft_lstadd_back(shell, ft_lstnew(buff, 0));
+    add_back_9aw9a3a(shell, lstnew_9aw9a3a(buff, 0));
 }
 
 void    get_single_qoted(char *str, int *index, t_a9aw9o3 **shell)
@@ -67,7 +67,7 @@ void    get_single_qoted(char *str, int *index, t_a9aw9o3 **shell)
     if (!buff)
         return ;
     ft_strlcpy(buff, str, (i + 1));
-    ft_lstadd_back(shell, ft_lstnew(buff, 1));
+    add_back_9aw9a3a(shell, lstnew_9aw9a3a(buff, 1));
 }
 
 void    get_double_quoted(char *str, int *index, t_a9aw9o3 **shell)
@@ -89,7 +89,7 @@ void    get_double_quoted(char *str, int *index, t_a9aw9o3 **shell)
     if (!buff)
         return ;
     ft_strlcpy(buff, str, (i + 1));
-    ft_lstadd_back(shell, ft_lstnew(buff, 2));
+    add_back_9aw9a3a(shell, lstnew_9aw9a3a(buff, 2));
 }
 
 void zre3_btata_dk_lflah(char *str)
@@ -138,8 +138,6 @@ void zre3_btata_dk_lflah(char *str)
     free (str);
     zre3_btata_dk_lflah(readline("minishell$:"));
 }
-
-#include <string.h>
 
 int main(int ac, char **ar)
 {

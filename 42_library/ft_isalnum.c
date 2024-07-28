@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:29:47 by csaidi            #+#    #+#             */
-/*   Updated: 2023/12/17 13:17:36 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:15:55 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 int	ft_isalnum(int c)
 {

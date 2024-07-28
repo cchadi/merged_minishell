@@ -1,5 +1,6 @@
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 t_ms	*ft_lstlast(t_ms *lst)
 {

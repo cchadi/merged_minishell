@@ -1,4 +1,5 @@
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void    build_env(t_env *v)
 {

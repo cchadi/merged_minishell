@@ -1,4 +1,5 @@
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void    build_export(char **str, t_env **v)
 {

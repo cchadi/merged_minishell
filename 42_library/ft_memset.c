@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:30:23 by csaidi            #+#    #+#             */
-/*   Updated: 2023/12/16 09:20:14 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:15:55 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void	*ft_memset(void *b, int c, size_t len)
 {

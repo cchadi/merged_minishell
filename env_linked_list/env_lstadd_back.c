@@ -1,4 +1,5 @@
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void	env_lstadd_back(t_env **lst, t_env *new)
 {

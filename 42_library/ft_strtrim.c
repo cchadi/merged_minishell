@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 16:13:51 by csaidi            #+#    #+#             */
-/*   Updated: 2023/12/18 16:48:08 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:29:11 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 char	*ft_alloc_void(char *str)
 {
@@ -43,11 +44,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_alloc_void(s));
 	return (ft_substr(s1, i, len - i + 1));
 }
-// int main()
-// {
-// 	char str[] = "abcdba";
-// 	char set[] = "ab";
-
-// 	// ft_strtrim(str, set);
-// 	printf("string = %s\n", ft_strtrim(str, set));
-// }

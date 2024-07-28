@@ -1,26 +1,45 @@
-SRCS = main.c shell_utils.c extra_utils.c 9aw9a3a_utils.c process_args.c send_to_shadi.c get_next_line1.c
 
-OBJ = $(SRCS:.c=.o)
+SRCS = linked_list/ft_lstadd_back.c linked_list/ft_lstnew.c linked_list/ft_lstlast.c linked_list/ft_lstadd_front.c \
+	env_linked_list/env_lstadd_back.c env_linked_list/env_lstadd_front.c env_linked_list/env_lstnew.c \
+	env_linked_list/env_lstlast.c env_linked_list/get_envp.c env_linked_list/split_env.c get_next_line.c \
+	builtins/build_cd.c builtins/build_echo.c builtins/build_env.c builtins/build_exit.c builtins/build_export.c \
+	builtins/build_pwd.c builtins/build_unset.c forming_list.c execution/execute_cmd.c \
+	execution/simple_execute.c execution/execute_builtins.c tools.c execution/ft_pipe.c \
+	execution/if_accessible.c execution/check_cmd.c
 
-CFLAGS = -lcurses -lreadline #-fsanitize=address
+SRCS_LIBFT = 42_library/ft_atoi.c 42_library/ft_isdigit.c 42_library/ft_memset.c 42_library/ft_strlen.c \
+	42_library/ft_bzero.c 42_library/ft_isprint.c 42_library/ft_strchr.c 42_library/ft_strncmp.c 	\
+	42_library/ft_calloc.c 42_library/ft_memchr.c 42_library/ft_strdup.c 42_library/ft_strnstr.c 	\
+	42_library/ft_isalnum.c 42_library/ft_memcmp.c 42_library/ft_strjoin.c 42_library/ft_strrchr.c  \
+	42_library/ft_isalpha.c 42_library/ft_memcpy.c 42_library/ft_strlcat.c 42_library/ft_tolower.c  \
+	42_library/ft_isascii.c 42_library/ft_memmove.c 42_library/ft_strlcpy.c 42_library/ft_toupper.c \
+	42_library/ft_substr.c 42_library/ft_strtrim.c 42_library/ft_split.c 42_library/ft_itoa.c \
+	42_library/ft_strmapi.c 42_library/ft_striteri.c 42_library/ft_putchar_fd.c 42_library/ft_putstr_fd.c \
+	42_library/ft_putendl_fd.c 42_library/ft_putnbr_fd.c
+
+SRCS_PRINTF = ft_printf/ft_printf.c ft_printf/ft_decimal_to_hex.c ft_printf/ft_check.c \
+	ft_printf/ft_decimal_to_hexa.c ft_printf/ft_put_positive.c ft_printf/ft_putnbr.c  \
+	ft_printf/ft_putstr.c ft_printf/ft_put_adress.c ft_printf/ft_putchar.c
+
+SRCS_PARS = main.c shell_utils.c extra_utils.c 9aw9a3a_utils.c process_args.c send_to_shadi.c \
+	get_next_line1.c
+
+OBJS = $(SRCS:.c=.o) $(SRCS_LIBFT:.c=.o) $(SRCS_PRINTF:.c=.o) $(SRCS_PARS:.c=.o)
+
 NAME = minishell
-RM = rm -f
-CC = cc
 
-all:$(NAME)
+CFLAGS = -lcurses -lreadline #-Wall -Werror -Wextra #-fsanitize=address 
+CC = gcc
 
-$(NAME):$(OBJ)
+all : $(NAME)
 
-%.o: %.c
-	@$(CC) -c $< -o $@
+$(NAME) : $(OBJS)
+	@$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+clean :
+	-rm -f $(OBJS)
 
-clean:
-	@$(RM) $(OBJ)
+fclean : clean
+	-rm -f $(NAME)
 
-fclean: clean
-	@$(RM) $(NAME)
-
-re: fclean all
+re : fclean	all

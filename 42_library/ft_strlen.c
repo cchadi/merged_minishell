@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:31:09 by csaidi            #+#    #+#             */
-/*   Updated: 2023/12/18 18:07:59 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:15:55 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../execution.h"
+#include "../minishell.h"
+
 
 size_t	ft_strlen(const char *s)
 {

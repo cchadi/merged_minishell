@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:31:18 by csaidi            #+#    #+#             */
-/*   Updated: 2023/12/17 13:19:00 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:15:55 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

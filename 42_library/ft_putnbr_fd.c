@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csaidi <csaidi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 16:35:15 by csaidi            #+#    #+#             */
-/*   Updated: 2023/11/28 16:35:16 by csaidi           ###   ########.fr       */
+/*   Updated: 2024/07/28 13:15:55 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void	ft_putnbr_fd(int n, int fd)
 {

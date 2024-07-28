@@ -1,5 +1,6 @@
 
-#include "../execution.h"
+#include "../minishell.h"
+
 
 void	ft_lstadd_back(t_ms **lst, t_ms *new)
 {

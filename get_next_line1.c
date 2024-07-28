@@ -6,11 +6,12 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 18:53:04 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 10:11:09 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:16:54 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "minishell.h"
+
 
 char	*cut_str(char *s)
 {

@@ -6,11 +6,12 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:38:15 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 10:11:09 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:25:13 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "minishell.h"
+
 
 int check_quotes(char *str)
 {
@@ -82,22 +83,4 @@ int get_qoutes(char *str, int index)
         ++i;
     }
     return (quotes);
-}
-
-size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
-{
-	size_t	srclen;
-	size_t	dstlen;
-
-	dstlen = ft_strlen(dst);
-	srclen = ft_strlen(src);
-	if (dstlen >= dstsize)
-	{
-		return (srclen + dstsize);
-	}
-	if (0 < dstsize - dstlen - 1)
-	{
-		ft_strlcpy(dst + dstlen, src, dstsize - dstlen);
-	}
-	return (dstlen + srclen);
 }

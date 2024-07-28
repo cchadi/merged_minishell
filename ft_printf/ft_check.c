@@ -1,4 +1,5 @@
-#include "../execution.h"
+#include "../minishell.h"
+
 
 int	ft_check(char s, va_list args, int len)
 {

@@ -1,4 +1,4 @@
-#include "../execution.h"
+#include "../minishell.h"
 
 int	child_process_1(char **av, char **env, int *fd, t_var *var)
 {

@@ -6,11 +6,12 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:41 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 10:16:40 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:24:37 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "minishell.h"
+
 
 void    sanitize_tokens(t_a9aw9o3 *cmd)
 {
@@ -54,13 +55,13 @@ void    process_red(t_a9aw9o3 *cmd)
         str = head->cmd;
         if (head->quoted == 0 && str[0] == '>' && str[1] == '>')
             head->type = 5;
-        else if (head->quoted == 0 && ft_strchr(head->cmd, ">"))
+        else if (head->quoted == 0 && ft_strchar(head->cmd, ">"))
             head->type = 3;
         else if (head->quoted == 0 && str[0] == '<' && str[1] == '<')
             head->type = 6;
-        else if (head->quoted == 0 && ft_strchr(head->cmd, "<"))
+        else if (head->quoted == 0 && ft_strchar(head->cmd, "<"))
             head->type = 4;
-        else if (head->quoted == 0 && ft_strchr(head->cmd, "|"))
+        else if (head->quoted == 0 && ft_strchar(head->cmd, "|"))
             head->type = 7;
         else
             head->type = 0;

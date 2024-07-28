@@ -1,4 +1,5 @@
-#include "../execution.h"
+#include "../minishell.h"
+
 
 t_ms	*ft_lstnew(void)
 {

@@ -6,11 +6,12 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 10:16:53 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:26:37 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include " parsing.h"
+#include "minishell.h"
+
 
 t_shell *tokens_new(void)
 {
@@ -83,7 +84,7 @@ int is_alpha(char c)
 
 //     fd = open;  
 //     buff = NULL;
-//     while (ft_strchr(buff, del))
+//     while (ft_strchar(buff, del))
 //     {
 //         tmp = get_next_line(0);
 //         buff = ft_strjoin(buff, tmp);
@@ -108,7 +109,7 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             (tokens)->cmd = ft_strdup(iter->cmd);
         else if (iter->type == 2)
             lst_rje3_lor(&arg_strct, arg_new(ft_strdup(iter->cmd)));
-        else if (iter->type == 3 && !ft_strchr(iter->cmd, ">"))
+        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))
         {
             // open_file(iter->cmd, iter->type, );
             printf("fd before %d\n", tokens->out);
@@ -117,13 +118,13 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             tokens->out = open(iter->cmd, O_RDWR|O_CREAT, 0644);
             printf("fd after open %d\n", tokens->out);
         }
-        // else if (iter->type == 5 && !ft_strchr(iter->cmd, ">>"))
+        // else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
         // {
         //     if (tokens->out != 1)
         //         close(tokens->out);
         //     tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
         // }
-        // else if (iter->type == 4 && !ft_strchr(iter->cmd, "<"))
+        // else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
         // {
         //     if (tokens->in != 1)
         //         close(tokens->in);
@@ -131,7 +132,7 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
         //     if (tokens->in == -1)
         //         printf("infile:%s not found\n", iter->cmd);
         // }
-        // else if (iter->type == 6 && !ft_strchr(iter->cmd, "<<"))
+        // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
         //     her_dog(iter->cmd);
         if (iter->type == 7 || iter->next == NULL)
         {
