@@ -13,9 +13,15 @@ int main(int ac, char **ar, char **envp)
     env = NULL; 
     get_envp(envp, &env);
     input = readline("minishell $:");
-    zre3_btata_dk_lflah(input); // take address of shell as parameter to fill on it
-    ms = NULL;
-    forming_list(&ms, shell);
+    while(input != NULL)
+    {
+        shell = NULL;
+        shell = zre3_btata_dk_lflah(input); // take address of shell as parameter to fill on it
+        ms = ft_lstnew();
+        forming_list(&ms, shell);
+        execute_cmd(&ms, env, envp, 0);
+        input = readline("minishell$:");
+    }
     
     // read_history(input);
     return (0);

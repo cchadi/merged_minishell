@@ -24,7 +24,6 @@ void execute_cmd(t_ms **e, t_env *v, char **envp, int tmp)
             if ((*e)->outfile == 1 && (*e)->next)
                 (*e)->outfile = fd[1];
         }
-        
         pid = simple_execute((*e), envp);
         close(fd[0]);
         close(fd[1]);

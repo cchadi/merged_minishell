@@ -100,7 +100,7 @@ int         check_quotes(char *str);
 void        process_red(t_a9aw9o3 *cmd);
 void        expander(t_a9aw9o3 *tokens);
 t_shell     *fill_struct(t_a9aw9o3 **cmd);
-void        zre3_btata_dk_lflah(char *str);
+t_shell     *zre3_btata_dk_lflah(char *str);
 int	        ft_charchr(char c, char *find);
 int         ft_strchar(char *s, char *find);
 void        sanitize_tokens(t_a9aw9o3 *cmd);
@@ -194,9 +194,9 @@ void env_lstadd_front(t_env **lst, t_env *new);
 /******************* execution ********************/
 
 void	ft_free(char **ptr);
-char    *searsh_env(t_env *v);
 int     multiple_arg(char **ptr);
 void    check_cmd(t_ms **e, t_env *v);
+char    *env_searsh(t_env *v, char *find);
 int     simple_execute(t_ms *e, char **env);
 char	*if_accessible(char *cmd, char *env);
 int     execute_builtins(t_ms *e, t_env **v);

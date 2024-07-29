@@ -92,7 +92,7 @@ void    get_double_quoted(char *str, int *index, t_a9aw9o3 **shell)
     add_back_9aw9a3a(shell, lstnew_9aw9a3a(buff, 2));
 }
 
-void zre3_btata_dk_lflah(char *str)
+t_shell *zre3_btata_dk_lflah(char *str)
 {
     t_a9aw9o3   *tokens;
     char        *buff;
@@ -125,17 +125,11 @@ void zre3_btata_dk_lflah(char *str)
     sanitize_tokens(tokens);
     expander(tokens);
     // remove_quotes(tokens);
-    t_shell *lst = fill_struct(&tokens);
-    printf("cmd %s\n", lst->cmd);
-    printf("out %d\n", lst->out);
-    printf("in %d\n", lst->in);
-    t_arg *gg = lst->args;
-    while (gg)
-    {
-        printf("args %s \n", gg->arg);
-        gg = gg->next;
-    }
-    free (str);
-    zre3_btata_dk_lflah(readline("minishell$:"));
+
+    // zre3_btata_dk_lflah(readline("minishell$:"));  // i ignore this line to fix the infinite loop instead
+    // of that i put the readline on the main after the cmd are executed.
+
+    return(free (str), fill_struct(&tokens)); // this line using to return the fill struct (u can let it and 
+    // ignor the comment about shell si non take the adress of shell and fill on it directly) 
 }
 
