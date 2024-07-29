@@ -57,13 +57,6 @@ void	lst_rje3_lor(t_arg **lst, t_arg *new)
 	head->next = new;
 }
 
-int is_alpha(char c)
-{
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return (1);
-    return (0);
-}
-
 // void    open_files(char file, int type, t_shell *tokens)
 // {
 //     t_shell *p;
@@ -111,12 +104,9 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             lst_rje3_lor(&arg_strct, arg_new(ft_strdup(iter->cmd)));
         else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))
         {
-            // open_file(iter->cmd, iter->type, );
-            printf("fd before %d\n", tokens->out);
-            if (tokens->out > 1)
-                close (tokens->out);
             tokens->out = open(iter->cmd, O_RDWR|O_CREAT, 0644);
-            printf("fd after open %d\n", tokens->out);
+            if (tokens->out == -1)
+                perror(iter->cmd);
         }
         // else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
         // {
@@ -124,14 +114,12 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
         //         close(tokens->out);
         //     tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
         // }
-        // else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
-        // {
-        //     if (tokens->in != 1)
-        //         close(tokens->in);
-        //     tokens->in = open(iter->cmd, O_RDWR, 0644);
-        //     if (tokens->in == -1)
-        //         printf("infile:%s not found\n", iter->cmd);
-        // }
+        else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
+        {
+            tokens->in = open(iter->cmd, O_RDWR);
+            if (tokens->in == -1)
+                perror(iter->cmd);
+        }
         // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
         //     her_dog(iter->cmd);
         if (iter->type == 7 || iter->next == NULL)

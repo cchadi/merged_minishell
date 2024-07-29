@@ -6,11 +6,16 @@ int	simple_execute(t_ms *e, char **env)
 	pid = fork();
 	if (pid == 0)
 	{
-		printf("here\n");
-		dup2(e->infile, 0);
-		close(e->infile);
-		dup2(e->outfile, 1);
-		close(e->outfile);
+		if (e->infile != 0)
+		{
+			dup2(e->infile, 0);
+			close(e->infile);
+		}
+		if (e->outfile != 1)
+		{
+			dup2(e->outfile, 1);
+			close(e->outfile);	
+		}
 
 		if (execve(e->cmd, e->arg, env) == -1)
 		{
