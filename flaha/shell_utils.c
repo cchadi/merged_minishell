@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:54:09 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/30 14:01:44 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:43:01 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,17 @@ void	print(char *str, int i)
 		printf("%c", str[j]);
 		++j;
 	}
+// void    open_files(char file, int type, t_shell *tokens)
+// {
+//     t_shell *p;
+
+//     p = tokens;
+//     while (p->next)//iterate the the final node because each pipe a new node created so iterate to the last one
+//         p = p->next;
+//     if (type == 3)
+//         open(file, O_RDWR|O_CREAT, 644);
+//     //else if (type == 4)
+// }
 }
 
 char	*ft_strjoin_exp(char *s1, char *s2, int index)
