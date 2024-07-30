@@ -94,6 +94,7 @@ typedef struct s_ms // build to execute cmd
 
 /********************* Parsing **********************/
 
+void	    ft_heredoc(char *del);
 char	    *get_next_line(int fd);
 int         check_syntax(char *str);
 int         check_quotes(char *str);

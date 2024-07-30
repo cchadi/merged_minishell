@@ -19,7 +19,7 @@ int	simple_execute(t_ms *e, char **env)
 
 		if (execve(e->cmd, e->arg, env) == -1)
 		{
-			printf("erroooor\n");
+			printf("failed to execute!\n");
 			exit(0);
 		}
 	}

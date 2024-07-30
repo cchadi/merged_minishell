@@ -69,22 +69,6 @@ void	lst_rje3_lor(t_arg **lst, t_arg *new)
 //     //else if (type == 4)
 // }
 
-// void    her_dog(char *del)
-// {
-//     char    *buff;
-//     char    *tmp;
-//     int     fd;
-
-//     fd = open;  
-//     buff = NULL;
-//     while (ft_strchar(buff, del))
-//     {
-//         tmp = get_next_line(0);
-//         buff = ft_strjoin(buff, tmp);
-//     }
-//     write(fd, buff, ft_strlen(buff));
-// }
-
 t_shell *fill_struct(t_a9aw9o3 **cmd)
 {
     t_arg       *arg_strct;
@@ -108,12 +92,12 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             if (tokens->out == -1)
                 perror(iter->cmd);
         }
-        // else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
-        // {
-        //     if (tokens->out != 1)
-        //         close(tokens->out);
-        //     tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
-        // }
+        else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
+        {
+            tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
+            if (tokens->out == -1)
+                perror(iter->cmd);
+        }
         else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
         {
             tokens->in = open(iter->cmd, O_RDWR);
@@ -121,7 +105,7 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
                 perror(iter->cmd);
         }
         // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
-        //     her_dog(iter->cmd);
+        //     herdoc(iter->cmd);
         if (iter->type == 7 || iter->next == NULL)
         {
             (tokens)->args = arg_strct;
@@ -137,7 +121,7 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
     return (head);
 }
 
-void    expander(t_a9aw9o3 *tokens)//need a get_env function to get the env value and the linked list of env values
+void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env value and the linked list of env values
 {
     char    *result;
     char    *buff;
@@ -150,7 +134,7 @@ void    expander(t_a9aw9o3 *tokens)//need a get_env function to get the env valu
         i = 0;
         while (tokens->cmd[i])
         {
-            j = 0;//the if below checks if $ is in herdog or '' and if $ have chars after it
+            j = 0; //the if below checks if $ is in herdog or '' and if $ have chars after it
             if (tokens->cmd[i] == '$' && get_qoutes(tokens->cmd, i) != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
                 while (tokens->cmd[i + j] && is_alpha(tokens->cmd[i + j]))
