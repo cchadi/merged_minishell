@@ -6,12 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:54:09 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:16:54 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:01:44 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
+#include "../minishell.h"
 
 void	add_back_9aw9a3a(t_a9aw9o3 **lst, t_a9aw9o3 *new)
 {

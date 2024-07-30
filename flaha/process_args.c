@@ -6,12 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:41 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:24:37 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:06:32 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
+#include "../minishell.h"
 
 void    sanitize_tokens(t_a9aw9o3 *cmd)
 {

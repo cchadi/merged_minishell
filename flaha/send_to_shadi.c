@@ -6,11 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:26:37 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:01:53 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 
 t_shell *tokens_new(void)

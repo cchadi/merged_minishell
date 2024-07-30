@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   zre3_btata_dk_lflah.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:36:58 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:28:36 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:01:06 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 void    get_meta_chars(char *str, int *index, t_a9aw9o3 **shell)
 {
@@ -125,11 +125,6 @@ t_shell *zre3_btata_dk_lflah(char *str)
     sanitize_tokens(tokens);
     expander(tokens);
     // remove_quotes(tokens);
-
-    // zre3_btata_dk_lflah(readline("minishell$:"));  // i ignore this line to fix the infinite loop instead
-    // of that i put the readline on the main after the cmd are executed.
-
-    return(free (str), fill_struct(&tokens)); // this line using to return the fill struct (u can let it and 
-    // ignor the comment about shell si non take the adress of shell and fill on it directly) 
+    return(free (str), fill_struct(&tokens));//done
 }
 
