@@ -6,6 +6,8 @@ int	simple_execute(t_ms *e, char **env)
 	pid = fork();
 	if (pid == 0)
 	{
+		if (e->infile == -1 || e->outfile == -1)
+			return (pid);
 		if (e->infile != 0)
 		{
 			dup2(e->infile, 0);

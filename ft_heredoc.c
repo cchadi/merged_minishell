@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-void    ft_heredoc(char *del)
+void    ft_heredoc(char *del, t_ms **ms)
 {
     char    *buffer;
     int     fd[2];
@@ -17,15 +17,15 @@ void    ft_heredoc(char *del)
             if (!buffer || ft_strncmp(buffer, del, sizeof(buffer)) == 0)
                 break ;
             ft_putstr_fd(buffer, fd[1]);
-            ft_putchar_fd('\n', fd);
+            ft_putchar_fd('\n', fd[1]);
             if (buffer)
                 free(buffer);
         }
-        free(buffer);
+        if (buffer)
+            free(buffer);
         exit(0);
     }
     waitpid(pid, NULL, 0);
-
     close (fd[1]);
-    
+    dup2((*ms)->infile, fd[0]);
 }

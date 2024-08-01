@@ -94,17 +94,17 @@ typedef struct s_ms // build to execute cmd
 
 /********************* Parsing **********************/
 
-void	    ft_heredoc(char *del);
 char	    *get_next_line(int fd);
 int         check_syntax(char *str);
 int         check_quotes(char *str);
 void        process_red(t_a9aw9o3 *cmd);
 void        expander(t_a9aw9o3 *tokens);
 t_shell     *fill_struct(t_a9aw9o3 **cmd);
-t_shell     *zre3_btata_dk_lflah(char *str);
 int	        ft_charchr(char c, char *find);
+t_shell     *zre3_btata_dk_lflah(char *str);
 int         ft_strchar(char *s, char *find);
 void        sanitize_tokens(t_a9aw9o3 *cmd);
+void	    ft_heredoc(char *del, t_ms **ms);
 int         get_qoutes(char *str, int index);
 void        remove_quotes(t_a9aw9o3 *tokens);
 t_a9aw9o3	*lstnew_9aw9a3a(char *arg, int quote_type);

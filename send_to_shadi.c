@@ -86,9 +86,9 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             (tokens)->cmd = ft_strdup(iter->cmd);
         else if (iter->type == 2)
             lst_rje3_lor(&arg_strct, arg_new(ft_strdup(iter->cmd)));
-        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))
-        {
-            tokens->out = open(iter->cmd, O_RDWR|O_CREAT, 0644);
+        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))  // add check to infile before openning outfile
+        {                                                         // so u should open infile before outfile
+            tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0644);
             if (tokens->out == -1)
                 perror(iter->cmd);
         }

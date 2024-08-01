@@ -12,8 +12,6 @@ int main(int ac, char **ar, char **envp)
 
     env = NULL;
     get_envp(envp, &env);
-    ft_heredoc("del");
-    exit(1);
     input = readline("minishell $:");
     while (input != NULL)
     {

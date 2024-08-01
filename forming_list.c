@@ -48,7 +48,7 @@ void forming_list(t_ms **e, t_shell *shell)
         head->cmd = shell->cmd;
         head->infile = shell->in;
         head->outfile = shell->out;
-        printf("* infile= %d outfile= %d *\n",  shell->in,  shell->out);
+        // printf("* infile= %d outfile= %d *\n",  shell->in,  shell->out);
         head->arg = get_args(shell->args, head->cmd);
         i++;
         if (shell->next)

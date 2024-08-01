@@ -130,6 +130,6 @@ t_shell *zre3_btata_dk_lflah(char *str)
     // of that i put the readline on the main after the cmd are executed.
 
     return(free (str), fill_struct(&tokens)); // this line using to return the fill struct (u can let it and 
-    // ignor the comment about shell si non take the adress of shell and fill on it directly) 
+    // ignor the comment about shell if not take the adress of shell and fill on it directly) 
 }
 
