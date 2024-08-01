@@ -6,12 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 11:38:15 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:25:13 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:07:08 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
+#include "../minishell.h"
 
 int check_quotes(char *str)
 {

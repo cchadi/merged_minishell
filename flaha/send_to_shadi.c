@@ -6,11 +6,11 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/28 13:26:37 by achakour         ###   ########.fr       */
+/*   Updated: 2024/07/30 14:13:22 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 
 t_shell *tokens_new(void)
@@ -56,18 +56,6 @@ void	lst_rje3_lor(t_arg **lst, t_arg *new)
 		head = head->next;
 	head->next = new;
 }
-
-// void    open_files(char file, int type, t_shell *tokens)
-// {
-//     t_shell *p;
-
-//     p = tokens;
-//     while (p->next)//iterate the the final node because each pipe a new node created so iterate to the last one
-//         p = p->next;
-//     if (type == 3)
-//         open(file, O_RDWR|O_CREAT, 644);
-//     //else if (type == 4)
-// }
 
 t_shell *fill_struct(t_a9aw9o3 **cmd)
 {
