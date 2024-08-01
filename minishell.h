@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:33:43 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 14:50:47 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:32:35 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct s_ms // build to execute cmd
 
 /********************* Parsing **********************/
 
-char	    *get_next_line(int fd);
 int         check_syntax(char *str);
 int         check_quotes(char *str);
 void        process_red(t_a9aw9o3 *cmd);
@@ -102,13 +101,13 @@ void        expander(t_a9aw9o3 *tokens);
 t_shell     *fill_struct(t_a9aw9o3 **cmd);
 int	        ft_charchr(char c, char *find);
 t_shell     *zre3_btata_dk_lflah(char *str);
+char	*ft_strjoin_exp(char *s1, char *s2);
 int         ft_strchar(char *s, char *find);
 void        sanitize_tokens(t_a9aw9o3 *cmd);
 void	    ft_heredoc(char *del, t_ms **ms);
 int         get_qoutes(char *str, int index);
 void        remove_quotes(t_a9aw9o3 *tokens);
 t_a9aw9o3	*lstnew_9aw9a3a(char *arg, int quote_type);
-char	    *ft_strjoin_exp(char *s1, char *s2, int index);
 void	    add_back_9aw9a3a(t_a9aw9o3 **lst, t_a9aw9o3 *new);
 
 /*********************    Linked_list    *******************/

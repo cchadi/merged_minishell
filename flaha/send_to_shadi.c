@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 14:55:01 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:29:51 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
 
 void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env value and the linked list of env values
 {
-    char    *result;
+    char    *result;//tmp to free the str
     char    *buff;
     int     i;
     int     j;
@@ -124,9 +124,9 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
         i = 0;
         while (tokens->cmd[i])
         {
-            j = 0; //the if below checks if $ is in herdog or '' and if $ have chars after it
             if (tokens->cmd[i] == '$' && get_qoutes(tokens->cmd, i) != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
+                j = 0; //the if below checks if $ is in herdog or '' and if $ have chars after it
                 while (tokens->cmd[i + j] && is_alpha(tokens->cmd[i + j]))
                     ++j;
                 buff = (char *)malloc(sizeof(char) * j + 1);
@@ -138,19 +138,16 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                 }
                 buff[j] = '\0';
                 result = getenv(buff);
-                // printf("env %s\n", result);
                 if (!result && (tokens->type >= 3 && tokens->type <= 5) && !get_qoutes(tokens->cmd, i))// the cases of ambigius redirection
                 {
                     printf("%s ambigious redirectin\n", tokens->cmd + i);
                     tokens->err = 1;
                 }
-                // result = ft_strjoin_exp(tokens->cmd,  result, &i);
-                // result = ft_strjoin_exp(result, tokens->cmd + i, &i);
-                result = ft_strjoin_exp(tokens->cmd, result, i);
-                result = ft_strjoin(result, tokens->cmd + i + j);
-                tokens->cmd = result;
+                free (buff);
+                buff = ft_strjoin(ft_get_str(tokens->cmd, i), result);
                 free (result);
-                printf("wow %s\n", tokens->cmd);
+                tokens->cmd = ft_strjoin(buff, tokens->cmd + i);
+                i = 0;
             }
             else
                 ++i;
