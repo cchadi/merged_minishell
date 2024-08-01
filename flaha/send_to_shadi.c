@@ -83,14 +83,14 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
         else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))  // add check to infile before openning outfile
         {
             if (tokens->in != -1)
-                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0644);
+                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0664);
             if (tokens->out == -1)
                 perror(iter->cmd);
         }
         else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
         {
             if (tokens->in != -1)
-                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
+                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0664);
             if (tokens->out == -1)
                 perror(iter->cmd);
         }
