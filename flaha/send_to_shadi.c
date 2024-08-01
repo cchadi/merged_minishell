@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 15:29:51 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:11:04 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             if (tokens->out == -1)
                 perror(iter->cmd);
         }
-        else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
-            ft_heredoc()
+        // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
+        //     ft_heredoc()
         if (iter->type == 7 || iter->next == NULL)
         {
             (tokens)->args = arg_strct;
@@ -143,10 +143,10 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                     printf("%s ambigious redirectin\n", tokens->cmd + i);
                     tokens->err = 1;
                 }
-                free (buff);
-                buff = ft_strjoin(ft_get_str(tokens->cmd, i), result);
-                free (result);
-                tokens->cmd = ft_strjoin(buff, tokens->cmd + i);
+                // free (buff);
+                // buff = ft_strjoin(ft_get_str(tokens->cmd, i), result);
+                // free (result);
+                // tokens->cmd = ft_strjoin(buff, tokens->cmd + i);
                 i = 0;
             }
             else
