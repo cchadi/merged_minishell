@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:33:43 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 20:10:30 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:14:25 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdint.h>
 # include <limits.h>
 # include <sys/wait.h>
-// # include <readline/history.h>
-// # include <readline/readline.h>
+# include <readline/history.h>
+# include <readline/readline.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
