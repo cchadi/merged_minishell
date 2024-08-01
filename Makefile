@@ -1,9 +1,9 @@
 
 SRCS = linked_list/ft_lstadd_back.c linked_list/ft_lstnew.c linked_list/ft_lstlast.c linked_list/ft_lstadd_front.c \
 	env_linked_list/env_lstadd_back.c env_linked_list/env_lstadd_front.c env_linked_list/env_lstnew.c \
-	env_linked_list/env_lstlast.c env_linked_list/get_envp.c env_linked_list/split_env.c get_next_line.c \
+	env_linked_list/env_lstlast.c env_linked_list/get_envp.c env_linked_list/split_env.c \
 	builtins/build_cd.c builtins/build_echo.c builtins/build_env.c builtins/build_exit.c builtins/build_export.c \
-	builtins/build_pwd.c builtins/build_unset.c forming_list.c execution/execute_cmd.c \
+	builtins/build_pwd.c builtins/build_unset.c execution/forming_list.c execution/execute_cmd.c \
 	execution/simple_execute.c execution/execute_builtins.c tools.c execution/ft_pipe.c \
 	execution/if_accessible.c execution/check_cmd.c execution/env_searsh.c 
 
@@ -21,8 +21,8 @@ SRCS_PRINTF = ft_printf/ft_printf.c ft_printf/ft_decimal_to_hex.c ft_printf/ft_c
 	ft_printf/ft_decimal_to_hexa.c ft_printf/ft_put_positive.c ft_printf/ft_putnbr.c  \
 	ft_printf/ft_putstr.c ft_printf/ft_put_adress.c ft_printf/ft_putchar.c
 
-SRCS_PARS = main.c shell_utils.c extra_utils.c 9aw9a3a_utils.c process_args.c send_to_shadi.c \
-	get_next_line1.c zre3_btata_dk_lflah.c ft_heredoc.c
+SRCS_PARS = main.c flaha/shell_utils.c flaha/extra_utils.c flaha/9aw9a3a_utils.c flaha/process_args.c \
+	flaha/zre3_btata_dk_lflah.c flaha/ft_heredoc.c flaha/send_to_shadi.c
 
 OBJS = $(SRCS:.c=.o) $(SRCS_LIBFT:.c=.o) $(SRCS_PRINTF:.c=.o) $(SRCS_PARS:.c=.o)
 

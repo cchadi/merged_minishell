@@ -22,8 +22,8 @@
 # include <stdint.h>
 # include <limits.h>
 # include <sys/wait.h>
-// # include <readline/history.h>
-// # include <readline/readline.h>
+# include <readline/history.h>
+# include <readline/readline.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
