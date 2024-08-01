@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/30 14:13:22 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:55:01 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,26 +74,28 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             (tokens)->cmd = ft_strdup(iter->cmd);
         else if (iter->type == 2)
             lst_rje3_lor(&arg_strct, arg_new(ft_strdup(iter->cmd)));
-        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))  // add check to infile before openning outfile
-        {                                                         // so u should open infile before outfile
-            tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0644);
-            if (tokens->out == -1)
-                perror(iter->cmd);
-        }
-        else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
-        {
-            tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
-            if (tokens->out == -1)
-                perror(iter->cmd);
-        }
         else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
         {
             tokens->in = open(iter->cmd, O_RDWR);
             if (tokens->in == -1)
                 perror(iter->cmd);
         }
-        // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
-        //     herdoc(iter->cmd);
+        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))  // add check to infile before openning outfile
+        {
+            if (tokens->in != -1)
+                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0644);
+            if (tokens->out == -1)
+                perror(iter->cmd);
+        }
+        else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
+        {
+            if (tokens->in != -1)
+                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0644);
+            if (tokens->out == -1)
+                perror(iter->cmd);
+        }
+        else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
+            ft_heredoc()
         if (iter->type == 7 || iter->next == NULL)
         {
             (tokens)->args = arg_strct;
