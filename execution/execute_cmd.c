@@ -13,9 +13,9 @@ void execute_cmd(t_ms **e, t_env *v, char **envp, int tmp)
         if ((*e)->next)
         {
             pipe(fd);
-            if ((*e)->infile == 0 && (*e)->pid)
+            if ((*e)->infile == 0 && (*e)->pid != 0)
             {
-                if(tmp)
+                if (tmp != 0)
                     (*e)->infile = tmp;
                 else
                     (*e)->infile = fd[0];
@@ -23,12 +23,17 @@ void execute_cmd(t_ms **e, t_env *v, char **envp, int tmp)
             if ((*e)->outfile == 1 && (*e)->next)
                 (*e)->outfile = fd[1];
         }
+        else if ((*e)->infile == 0 && (*e)->pid != 0)
+        {
+            printf("here\n");
+            (*e)->infile = tmp;
+        }
         pid = simple_execute((*e), envp);
-        close(fd[0]);
-        close(fd[1]);
+        // close(fd[0]);
+        // close(fd[1]);
         waitpid(pid, NULL, 0);
-        // tmp = fd[1];
-        dup2(tmp, fd[1]);
+        tmp = fd[0];
+        // dup2(tmp, fd[1]);
         (*e) = (*e)->next;
     }
 }

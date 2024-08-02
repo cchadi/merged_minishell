@@ -3,6 +3,8 @@
 int	simple_execute(t_ms *e, char **env)
 {
 	int	pid;
+	
+	printf("in = %d out = %d\n", e->infile, e->outfile);
 	pid = fork();
 	if (pid == 0)
 	{
