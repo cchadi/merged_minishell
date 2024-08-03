@@ -7,6 +7,8 @@ int main(int ac, char **ar, char **envp)
     t_ms *ms;
     char *input;
 
+    (void)ac;
+    (void)ar;
     env = NULL;
     get_envp(envp, &env);
     // input = readline("minishell $:");

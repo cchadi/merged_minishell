@@ -95,7 +95,7 @@ void    get_double_quoted(char *str, int *index, t_a9aw9o3 **shell)
 t_shell *zre3_btata_dk_lflah(char *str)
 {
     t_a9aw9o3   *tokens;
-    char        *buff;
+    // char        *buff;
     int         i;
 
     i = 0;
