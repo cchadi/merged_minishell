@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/03 14:11:12 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/03 14:23:36 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
         i = 0;
         while (tokens->cmd[i])
         {
-            if (tokens->cmd[i] == '$' && tokens->quoted !=  && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
+            if (tokens->cmd[i] == '$' && tokens->quoted != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
                 j = 0;
                 while (is_alpha(tokens->cmd[i + j]))
@@ -165,7 +165,7 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                 buff = ft_strjoin(ft_get_str(tokens->cmd, i - 1), result);
                 free (result);
                 buff = ft_strjoin(buff, tokens->cmd + i + j);
-                free(tokens->cmd);
+                // free(tokens->cmd);
                 tokens->cmd = buff;
                 i = 0;
             }
