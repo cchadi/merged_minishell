@@ -4,22 +4,15 @@ int	simple_execute(t_ms *e, char **env)
 {
 	int	pid;
 	
-	printf("in = %d out = %d\n", e->infile, e->outfile);
 	pid = fork();
 	if (pid == 0)
 	{
 		if (e->infile == -1 || e->outfile == -1)
-			return (pid);
+			exit(0);
 		if (e->infile != 0)
-		{
 			dup2(e->infile, 0);
-			close(e->infile);
-		}
 		if (e->outfile != 1)
-		{
 			dup2(e->outfile, 1);
-			close(e->outfile);	
-		}
 
 		if (execve(e->cmd, e->arg, env) == -1)
 		{
@@ -28,5 +21,9 @@ int	simple_execute(t_ms *e, char **env)
 		}
 	}
 	waitpid(pid, NULL, 0);
+	if (e->infile != 0)
+		close(e->infile);
+	if (e->outfile != 1)
+		close(e->outfile);
 	return (pid);
 }
