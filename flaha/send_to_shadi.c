@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 20:19:16 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/03 14:11:12 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,24 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
     return (head);
 }
 
+char    *ft_get_str(char *str, int len)
+{
+    char    *buff;
+    int     i;
+
+    buff = (char *)malloc(sizeof(char) * (len + 1));
+    if (!buff)
+        return (NULL);
+    i = 0;
+    while (i < len)
+    {
+        buff[i] = str[i];
+        ++i;
+    }
+    buff[i] = '\0';
+    return (buff);
+}
+
 void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env value and the linked list of env values
 {
     char    *result;//tmp to free the str
@@ -124,12 +142,12 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
         i = 0;
         while (tokens->cmd[i])
         {
-            if (tokens->cmd[i] == '$' && get_qoutes(tokens->cmd, i) != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
+            if (tokens->cmd[i] == '$' && tokens->quoted !=  && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
-                j = 0; //the if below checks if $ is in herdog or '' and if $ have chars after it
-                while (tokens->cmd[i + j] && is_alpha(tokens->cmd[i + j]))
+                j = 0;
+                while (is_alpha(tokens->cmd[i + j]))
                     ++j;
-                buff = (char *)malloc(sizeof(char) * j + 1);
+                buff = (char *)malloc(sizeof(char) * (j + 1));
                 j = 0;
                 while (is_alpha(tokens->cmd[i + j]))
                 {
@@ -138,15 +156,17 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                 }
                 buff[j] = '\0';
                 result = getenv(buff);
-                if (!result && (tokens->type >= 3 && tokens->type <= 5) && !get_qoutes(tokens->cmd, i))// the cases of ambigius redirection
+                if (!result && (tokens->type >= 3 && tokens->type <= 5) && !get_qoutes(tokens->cmd, i))
                 {
                     printf("%s ambigious redirectin\n", tokens->cmd + i);
                     tokens->err = 1;
                 }
-                // free (buff);
-                // buff = ft_strjoin(ft_get_str(tokens->cmd + i, &j), result);
-                // free (result);
-                // tokens->cmd = ft_strjoin(buff, tokens->cmd + i + j);
+                free (buff);
+                buff = ft_strjoin(ft_get_str(tokens->cmd, i - 1), result);
+                free (result);
+                buff = ft_strjoin(buff, tokens->cmd + i + j);
+                free(tokens->cmd);
+                tokens->cmd = buff;
                 i = 0;
             }
             else
