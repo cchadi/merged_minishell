@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 20:14:17 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:19:16 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,9 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                     tokens->err = 1;
                 }
                 // free (buff);
-                // buff = ft_strjoin(ft_get_str(tokens->cmd, i), result);
+                // buff = ft_strjoin(ft_get_str(tokens->cmd + i, &j), result);
                 // free (result);
-                // tokens->cmd = ft_strjoin(buff, tokens->cmd + i);
+                // tokens->cmd = ft_strjoin(buff, tokens->cmd + i + j);
                 i = 0;
             }
             else
