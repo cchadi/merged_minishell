@@ -7,6 +7,7 @@ void	check_cmd(t_ms **e, t_env *v)
 
 	head = (*e);
 	path = env_searsh(v, "PATH");
+	
 	if (path)
 	{
 		while(head)

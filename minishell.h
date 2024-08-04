@@ -101,12 +101,12 @@ void        expander(t_a9aw9o3 *tokens);
 t_shell     *fill_struct(t_a9aw9o3 **cmd);
 int	        ft_charchr(char c, char *find);
 t_shell     *zre3_btata_dk_lflah(char *str);
-char	*ft_strjoin_exp(char *s1, char *s2);
 int         ft_strchar(char *s, char *find);
 void        sanitize_tokens(t_a9aw9o3 *cmd);
 void	    ft_heredoc(char *del, t_ms **ms);
 int         get_qoutes(char *str, int index);
 void        remove_quotes(t_a9aw9o3 *tokens);
+char	    *ft_strjoin_exp(char *s1, char *s2);
 t_a9aw9o3	*lstnew_9aw9a3a(char *arg, int quote_type);
 void	    add_back_9aw9a3a(t_a9aw9o3 **lst, t_a9aw9o3 *new);
 
@@ -154,45 +154,47 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
-/********************* printf  **********************/
+/************************ printf  *************************/
 
-int			ft_putnbr(int c, int len);
-int			ft_putchar(char c, int len);
-int			ft_putstr(char *s, int len);
-int			ft_printf(const char *str, ...);
-int			ft_check(char s, va_list args, int len);
-int			ft_put_positive(unsigned int c, int len);
-int			ft_put_adress(unsigned long decimal, int len);
-int			ft_decimal_to_hex(unsigned long decimal, int len);
-int			ft_decimal_to_hexa(unsigned int decimal, int len);
+int		ft_putnbr(int c, int len);
+int		ft_putchar(char c, int len);
+int		ft_putstr(char *s, int len);
+int		ft_printf(const char *str, ...);
+int		ft_check(char s, va_list args, int len);
+int		ft_put_positive(unsigned int c, int len);
+int		ft_put_adress(unsigned long decimal, int len);
+int		ft_decimal_to_hex(unsigned long decimal, int len);
+int		ft_decimal_to_hexa(unsigned int decimal, int len);
 
-/******************* get_next_line  *******************/
+/********************* get_next_line  **********************/
 
-char		*get_next_line(int fd);
-char		*returnline(char *buffer);
-char		*ft_readfile(int fd, char *buffer);
+char	*get_next_line(int fd);
+char	*returnline(char *buffer);
+char	*ft_readfile(int fd, char *buffer);
 
-/**************** builtins  *******************/
+/******************* builtins  **********************/
 
-void build_pwd(void);
-void build_env(t_env *v);
-void build_exit(char **status);
-void build_cd(char **direction);
-void build_unset(char **str, t_env **v);
-void build_export(char **str, t_env **v);
-void build_echo(char **str, int fd);
+void    build_pwd(void);
+void    build_env(t_env *v);
+void    build_exit(char **status);
+void    build_echo(char **str, int fd);
+void    build_unset(char **str, t_env **v);
+void    build_export(char **str, t_env **v);
+t_env   *export_split(char *str, t_env **v);
+void    build_cd(char **direction, t_env *v);
 
-/************** env_linked_list  ****************/
+/*************** env_linked_list  ******************/
 
-t_env *env_lstnew(void);
-t_env *split_env(char *str);
-t_env *env_lstlast(t_env *lst);
-void get_envp(char **envp, t_env **head);
-void env_lstadd_back(t_env **lst, t_env *new);
-void env_lstadd_front(t_env **lst, t_env *new);
+t_env   *env_lstnew(void);
+t_env   *split_env(char *str);
+t_env   *env_lstlast(t_env *lst);
+void    get_envp(char **envp, t_env **head);
+void    env_lstadd_back(t_env **lst, t_env *new);
+void    env_lstadd_front(t_env **lst, t_env *new);
 
 /******************* execution ********************/
 
+int     ft_isalpha(char c);
 void	ft_free(char **ptr);
 int     multiple_arg(char **ptr);
 void    check_cmd(t_ms **e, t_env *v);

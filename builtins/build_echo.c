@@ -1,6 +1,5 @@
 #include "../minishell.h"
 
-
 int its_n(char *str)
 {
     int i;
@@ -55,7 +54,8 @@ void build_echo(char **arg, int fd)
     while (arg[i])
     {
         ft_putstr_fd(arg[i], fd);
-        ft_putchar_fd(' ', fd);
+        if (arg[i+1])
+            ft_putchar_fd(' ', fd);
         i++;
     }
     if (nl == 1)

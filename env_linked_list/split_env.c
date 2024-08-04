@@ -1,6 +1,5 @@
 #include "../minishell.h"
 
-
 t_env *split_env(char *str)
 {
     int i;
