@@ -11,17 +11,24 @@ int main(int ac, char **ar, char **envp)
     (void)ar;
     env = NULL;
     get_envp(envp, &env);
-    input = readline("minishell $:");
-    // input = "hello $USER backour";
-    while (input != NULL)
+    while(1)
     {
-        shell = NULL;
-        shell = zre3_btata_dk_lflah(input);
-        ms = ft_lstnew();
-        forming_list(&ms, shell);
-        execute_cmd(&ms, env, envp, 0);
-        input = readline("minishell$:");
+        input = readline("minishell $:");
+        if (input != NULL && input[0] != '\0')
+        {
+            add_history(input);
+            while (input != NULL && input[0] != '\0')
+            {
+                shell = NULL;
+                shell = zre3_btata_dk_lflah(input);
+                ms = ft_lstnew();
+                forming_list(&ms, shell);
+                execute_cmd(&ms, env, envp, 0);
+                input = readline("minishell$:");
+                add_history(input);
+            }
+        }
     }
-    read_history(input);
+
     return (0);
 }
