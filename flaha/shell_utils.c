@@ -6,10 +6,16 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:54:09 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/01 20:20:42 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:52:42 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// git add .
+// git commit -m "Your commit message"
+// git fetch origin
+// git merge origin 
+// hna la kane chi conflict 9adu manuel 3ad douz next step
+// git push origin main
 #include "../minishell.h"
 
 void	add_back_9aw9a3a(t_a9aw9o3 **lst, t_a9aw9o3 *new)
