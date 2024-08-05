@@ -28,8 +28,6 @@ int main(int ac, char **ar, char **envp)
                 add_history(input);
             }
         }
-        else
-            break;
     }
 
     return (0);
