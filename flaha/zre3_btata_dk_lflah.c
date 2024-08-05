@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:36:58 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/03 14:25:02 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/03 14:43:48 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,6 @@ t_shell *zre3_btata_dk_lflah(char *str)
     sanitize_tokens(tokens);
     remove_quotes(tokens);
     // expander(tokens);
-    return(free (str), fill_struct(&tokens));//done
+    return(free (str), fill_struct(&tokens));
 }
 
