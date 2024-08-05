@@ -1,6 +1,5 @@
 #include "../minishell.h"
 
-
 void    build_unset(char **str, t_env **v)
 {
     t_env *head;
@@ -15,8 +14,7 @@ void    build_unset(char **str, t_env **v)
         {
             if (ft_strncmp(str[i], head->key, sizeof(str[i])) == 0)
             {
-                //delete node
-                tmp->next = head->next;
+                tmp->next = head->next; //delete node
                 free(head);
                 break;
             }

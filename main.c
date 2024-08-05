@@ -7,10 +7,12 @@ int main(int ac, char **ar, char **envp)
     t_ms *ms;
     char *input;
 
+    (void)ac;
+    (void)ar;
     env = NULL;
     get_envp(envp, &env);
-    // input = readline("minishell $:");
-    input = "hello $USER backour";
+    input = readline("minishell $:");
+    // input = "hello $USER backour";
     while (input != NULL)
     {
         shell = NULL;
@@ -18,8 +20,8 @@ int main(int ac, char **ar, char **envp)
         ms = ft_lstnew();
         forming_list(&ms, shell);
         execute_cmd(&ms, env, envp, 0);
-        // input = readline("minishell$:");
+        input = readline("minishell$:");
     }
-    // read_history(input);
+    read_history(input);
     return (0);
 }
