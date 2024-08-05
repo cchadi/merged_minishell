@@ -21,15 +21,14 @@ t_env *split_env(char *str)
     }
     if (str[i] == '=')
     {
-        // i++;
         while(str[i++])
             j++;
-        new->value = malloc(j+1);
-        new->value[j] = '\0';
+        new->value = malloc(j);
         i = i - j;
         j = 0;
         while(str[i])
             new->value[j++] = str[i++];
+        new->value[j] = '\0';
     }
     else
         new->value = NULL;

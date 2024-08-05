@@ -1,8 +1,27 @@
 #include "../minishell.h"
 
-// add get_order() to print export in ascii order 
+void    get_order(t_env **v)
+{
+    t_env *head;
+    t_env *head2;
 
-// void    get_order(t_env **v)
+    head = (*v);
+    while(head)
+    {
+        head2 = head;
+        while (head2)
+        {
+            if (head2->next && ft_strcmp(head2->key, head2->next->key) > 0)
+            {
+                swap_nodes(&head2);
+                head2 = head;
+            }
+            else
+                head2 = head2->next;
+        }
+        head = head->next;
+    }
+}
 
 void    build_export(char **str, t_env **v)
 {
@@ -23,8 +42,8 @@ void    build_export(char **str, t_env **v)
     }
     else
     {
+        get_order(v);
         head = (*v);
-        //get_order(v);
         while(head)
         {
             ft_putstr_fd("declare -x ", 1);

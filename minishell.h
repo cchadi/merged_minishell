@@ -196,12 +196,14 @@ void    env_lstadd_front(t_env **lst, t_env *new);
 
 int     ft_isalpha(char c);
 void	ft_free(char **ptr);
+void	swap_nodes(t_env **v);
 int     multiple_arg(char **ptr);
 void    check_cmd(t_ms **e, t_env *v);
 char    *env_searsh(t_env *v, char *find);
 int     simple_execute(t_ms *e, char **env);
 char	*if_accessible(char *cmd, char *env);
 int     execute_builtins(t_ms *e, t_env **v);
+int     ft_strcmp(const char *s1, const char *s2);
 void	ft_pipe(char **av, char **env, t_var *var);
 void    forming_list(t_ms **my_struct, t_shell *shell);
 void    execute_cmd(t_ms **e, t_env *v, char **envp, int tmp);
