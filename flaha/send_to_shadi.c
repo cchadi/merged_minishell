@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/06 15:22:10 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:36:20 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ char    *ft_get_str(char *str, int len)
         ++i;
     }
     buff[i] = '\0';
-    printf("ss %s\n", buff);
     return (buff);
 }
 
@@ -144,7 +143,7 @@ char	*ft_strjoin_ex(char *s1, char *s2)
 	size_t	s2len;
 	char	*buffer;
 
-	if (!s1 || !s2)
+	if (!s1)
 	{
 		return (NULL);
 	}
@@ -158,6 +157,7 @@ char	*ft_strjoin_ex(char *s1, char *s2)
 	}
 	ft_strlcpy(buffer, s1, buffer_size);
 	ft_strlcat(buffer, s2, buffer_size);
+    free (s1);
 	return (buffer);
 }
 
@@ -196,10 +196,11 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                 }
                 free (buff);
                 buff = ft_strjoin_ex(ft_get_str(tokens->cmd, i - 1), result);
-                free (result);
-                // buff = ft_strjoin(buff, tokens->cmd + i + j);
-                // // free(tokens->cmd);
+                buff = ft_strjoin_ex(buff, tokens->cmd + i + j);
+                // free (result);
+                // result = tokens->cmd;
                 tokens->cmd = buff;
+                // free (result);
                 i = 0;
             }
             else
