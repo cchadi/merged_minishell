@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/03 14:23:36 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:22:10 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,32 @@ char    *ft_get_str(char *str, int len)
         ++i;
     }
     buff[i] = '\0';
+    printf("ss %s\n", buff);
     return (buff);
+}
+
+char	*ft_strjoin_ex(char *s1, char *s2)
+{
+	size_t	buffer_size;
+	size_t	s1len;
+	size_t	s2len;
+	char	*buffer;
+
+	if (!s1 || !s2)
+	{
+		return (NULL);
+	}
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	buffer_size = s1len + s2len + 1;
+	buffer = (char *)malloc(buffer_size);
+	if (!buffer)
+	{
+		return (NULL);
+	}
+	ft_strlcpy(buffer, s1, buffer_size);
+	ft_strlcat(buffer, s2, buffer_size);
+	return (buffer);
 }
 
 void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env value and the linked list of env values
@@ -151,6 +176,7 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
             if (tokens->cmd[i] == '$' && tokens->quoted != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
                 j = 0;
+                i++;
                 while (is_alpha(tokens->cmd[i + j]))
                     ++j;
                 buff = (char *)malloc(sizeof(char) * (j + 1));
@@ -168,10 +194,10 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
                     tokens->err = 1;
                 }
                 free (buff);
-                buff = ft_strjoin(ft_get_str(tokens->cmd, i - 1), result);
+                buff = ft_strjoin_ex(ft_get_str(tokens->cmd, i - 1), result);
                 free (result);
-                buff = ft_strjoin(buff, tokens->cmd + i + j);
-                // free(tokens->cmd);
+                // buff = ft_strjoin(buff, tokens->cmd + i + j);
+                // // free(tokens->cmd);
                 tokens->cmd = buff;
                 i = 0;
             }
