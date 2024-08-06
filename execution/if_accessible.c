@@ -7,7 +7,7 @@ char	*accessible(char *path, char *cmd)
 
 	if (ft_strchr(cmd, '/') == NULL)
 	{
-		partiel = ft_strjoin(ft_strdup("/"), cmd);
+		partiel = ft_strjoin("/", cmd);
 		full_path = ft_strjoin(path, partiel);
 		if (access(full_path, F_OK | X_OK) != -1)
 		{
@@ -45,7 +45,7 @@ char	*if_accessible(char *cmd, char *env)
 	l = 0;
 	while (splited_path[l])
 	{
-		command_path = accessible(ft_strdup(splited_path[l]), cmd);
+		command_path = accessible(splited_path[l], cmd);
 		if (command_path != NULL)
 		{
 			ft_free(splited_path);

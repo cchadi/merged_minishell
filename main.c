@@ -23,7 +23,7 @@ int main(int ac, char **ar, char **envp)
                 shell = zre3_btata_dk_lflah(input);
                 ms = ft_lstnew();
                 forming_list(&ms, shell);
-                execute_cmd(&ms, env, envp, 0);
+                execute_cmd(&ms, env, env_to_ptr(env), 0);
                 free_shell(&shell);
                 free_ms(&ms);
                 input = readline("minishell$:");

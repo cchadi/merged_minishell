@@ -12,7 +12,6 @@
 
 #include "../minishell.h"
 
-
 t_shell *tokens_new(void)
 {
     t_shell *new;
