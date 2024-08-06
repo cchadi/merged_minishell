@@ -24,7 +24,7 @@ SRCS_PRINTF = ft_printf/ft_printf.c ft_printf/ft_decimal_to_hex.c ft_printf/ft_c
 	ft_printf/ft_putstr.c ft_printf/ft_put_adress.c ft_printf/ft_putchar.c
 
 SRCS_PARS = main.c flaha/shell_utils.c flaha/extra_utils.c flaha/9aw9a3a_utils.c flaha/process_args.c \
-	flaha/zre3_btata_dk_lflah.c flaha/ft_heredoc.c flaha/send_to_shadi.c
+	flaha/parsing.c flaha/ft_heredoc.c flaha/send_to_shadi.c
 
 OBJS = $(SRCS:.c=.o) $(SRCS_LIBFT:.c=.o) $(SRCS_PRINTF:.c=.o) $(SRCS_PARS:.c=.o)
 

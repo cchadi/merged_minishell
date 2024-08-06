@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:38:41 by achakour          #+#    #+#             */
-/*   Updated: 2024/07/30 14:06:32 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 20:12:06 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void    sanitize_tokens(t_a9aw9o3 *cmd)
     int         before;
     t_a9aw9o3   *head;
     
-    head = cmd;
     before = 0;
+    head = cmd;
     cmd_found = 0;
     while (head)
     {

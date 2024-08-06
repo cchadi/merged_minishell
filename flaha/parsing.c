@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:36:58 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/06 15:05:06 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 20:09:23 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void    get_double_quoted(char *str, int *index, t_a9aw9o3 **shell)
 t_shell *parsing(char *str)
 {
     t_a9aw9o3   *tokens;
-    // char        *buff;
     int         i;
 
     i = 0;
@@ -103,21 +102,13 @@ t_shell *parsing(char *str)
     while (str[i])
     {
         if (str[i] == '\"')
-        {
             get_double_quoted(str + i, &i, &tokens);
-        }
         else if (str[i] == '\'')
-        {
             get_single_qoted(str + i, &i, &tokens);
-        }
         else if (!get_qoutes(str, i) && !ft_charchr(str[i], " <|>\"\'"))
-        {
             get_none_quoted(str + i, &i, &tokens);
-        }
         else if (ft_charchr(str[i], "<|>") && !get_qoutes(str, i))
-        {
             get_meta_chars(str + i, &i, &tokens);
-        }
         else if (str[i] == ' ')
             ++i;
     }
