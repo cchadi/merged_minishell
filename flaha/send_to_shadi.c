@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:44:45 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/06 20:25:04 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 20:51:47 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,11 +160,15 @@ char	*ft_strjoin_ex(char *s1, char *s2)
 	return (buffer);
 }
 
-char    *expander_cont(char *str, int i, int *j)
+char    *expander_cont(char *str, int x, int *y)
 {
     char    *result;
     char    *buff;
+    int     i;
+    int     j;
 
+    i = x;
+    j = 0;
    while (is_alpha(str[i + j]))
         ++j;
     buff = (char *)malloc(sizeof(char) * (j + 1));
@@ -176,6 +180,7 @@ char    *expander_cont(char *str, int i, int *j)
         buff[j] = str[i + j];
         ++j;
     }
+    *y = j;
     buff[j] = '\0';
     result = getenv(buff);
     free(buff);
@@ -184,12 +189,11 @@ char    *expander_cont(char *str, int i, int *j)
 
 void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env value and the linked list of env values
 {
-    char    *result;//tmp to free the str
+    char    *result;
     char    *buff;
     int     i;
     int     j;
 
-    result = NULL;
     while (tokens)
     {
         i = 0;
@@ -198,24 +202,12 @@ void    expander(t_a9aw9o3 *tokens) //need a get_env function to get the env val
             if (tokens->cmd[i] == '$' && tokens->quoted != 1 && is_alpha(tokens->cmd[i + 1]) && tokens->type != 6)
             {
                 i++;
-                j = 0;
-                while (is_alpha(tokens->cmd[i + j]))
-                    ++j;
-                buff = (char *)malloc(sizeof(char) * (j + 1));
-                j = 0;
-                while (is_alpha(tokens->cmd[i + j]))
-                {
-                    buff[j] = tokens->cmd[i + j];
-                    ++j;
-                }
-                buff[j] = '\0';
-                result = getenv(buff);
+                result = expander_cont(tokens->cmd, i, &j);
                 if (!result && (tokens->type >= 3 && tokens->type <= 5) && !get_qoutes(tokens->cmd, i))
                 {
                     printf("%s ambigious redirectin\n", tokens->cmd + i);
                     tokens->err = 1;
                 }
-                free (buff);
                 buff = ft_strjoin_ex(ft_get_str(tokens->cmd, i - 1), result);
                 buff = ft_strjoin_ex(buff, tokens->cmd + i + j);
                 tokens->cmd = buff;
