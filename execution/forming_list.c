@@ -11,6 +11,7 @@ int nbr_of_arg(t_arg *p)
     }
     return (i);
 }
+
 char **get_args(t_arg *p, char *cmd)
 {
     char **args;

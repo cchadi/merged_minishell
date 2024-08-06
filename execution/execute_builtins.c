@@ -64,5 +64,6 @@ int    execute_builtins(t_ms *e, t_env **v)
         build_exit(arg);
     else
         return (-1);
+    ft_free(arg);
     return (0);
 }

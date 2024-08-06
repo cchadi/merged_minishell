@@ -40,7 +40,6 @@
 # define DOG 6
 # define PIPE 7
 
-
 // t_env   *env_var;
 
 typedef struct s_a9aw9o3  // storing data while parsing
@@ -136,13 +135,13 @@ void	ft_bzero(void *s, size_t n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	**ft_split(char const *s, char c);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 size_t	ft_strlcat(char *dst, char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
@@ -199,6 +198,7 @@ int     ft_isalpha(char c);
 void    free_ms(t_ms **ms);
 void	ft_free(char **ptr);
 void	swap_nodes(t_env **v);
+char    **env_to_ptr(t_env *v);
 int     multiple_arg(char **ptr);
 void    free_shell(t_shell **shell);
 void    check_cmd(t_ms **e, t_env *v);

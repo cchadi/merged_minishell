@@ -19,4 +19,5 @@ void	check_cmd(t_ms **e, t_env *v)
 			head = head->next;				
 		}
 	}
+	free(path);
 }
