@@ -6,7 +6,7 @@ SRCS = linked_list/ft_lstadd_back.c linked_list/ft_lstnew.c linked_list/ft_lstla
 	builtins/build_pwd.c builtins/build_unset.c execution/forming_list.c execution/execute_cmd.c \
 	execution/simple_execute.c execution/execute_builtins.c tools.c execution/ft_pipe.c \
 	execution/if_accessible.c execution/check_cmd.c execution/env_searsh.c execution/ft_isalpha.c \
-	builtins/export_split.c execution/ft_strcmp.c execution/swap_nodes.c 
+	builtins/export_split.c execution/ft_strcmp.c execution/swap_nodes.c execution/free_list.c
 
 SRCS_LIBFT = 42_library/ft_atoi.c 42_library/ft_isdigit.c 42_library/ft_memset.c 42_library/ft_strlen.c \
 	42_library/ft_bzero.c 42_library/ft_isprint.c 42_library/ft_strchr.c 42_library/ft_strncmp.c 	\

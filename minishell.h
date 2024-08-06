@@ -195,9 +195,11 @@ void    env_lstadd_front(t_env **lst, t_env *new);
 /******************* execution ********************/
 
 int     ft_isalpha(char c);
+void    free_ms(t_ms **ms);
 void	ft_free(char **ptr);
 void	swap_nodes(t_env **v);
 int     multiple_arg(char **ptr);
+void    free_shell(t_shell **shell);
 void    check_cmd(t_ms **e, t_env *v);
 char    *env_searsh(t_env *v, char *find);
 int     simple_execute(t_ms *e, char **env);

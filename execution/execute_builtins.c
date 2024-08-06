@@ -51,7 +51,7 @@ int    execute_builtins(t_ms *e, t_env **v)
     if (ft_strncmp(e->cmd, "cd", sizeof(e->cmd)) == 0)
         build_cd(arg, (*v));
     else if (ft_strncmp(e->cmd, "echo", sizeof(e->cmd)) == 0)
-        build_echo(arg, 1);
+        build_echo(arg, e->outfile);
     else if (ft_strncmp(e->cmd, "unset", sizeof(e->cmd)) == 0)
         build_unset(arg, v);
     else if (ft_strncmp(e->cmd, "pwd", sizeof(e->cmd)) == 0)

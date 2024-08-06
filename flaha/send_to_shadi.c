@@ -76,23 +76,30 @@ t_shell *fill_struct(t_a9aw9o3 **cmd)
             lst_rje3_lor(&arg_strct, arg_new(ft_strdup(iter->cmd)));
         else if (iter->type == 4 && !ft_strchar(iter->cmd, "<"))
         {
-            tokens->in = open(iter->cmd, O_RDWR);
-            if (tokens->in == -1)
-                perror(iter->cmd);
-        }
-        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))  // add check to infile before openning outfile
-        {
             if (tokens->in != -1)
-                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0664);
-            if (tokens->out == -1)
-                perror(iter->cmd);
+            {
+                tokens->in = open(iter->cmd, O_RDWR);
+                if (tokens->in == -1)
+                    perror(iter->cmd);
+            }
+        }
+        else if (iter->type == 3 && !ft_strchar(iter->cmd, ">"))
+        {
+            if (tokens->out != -1)
+            {
+                tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_TRUNC, 0664);    
+                if (tokens->out == -1)
+                    perror(iter->cmd);
+            }
         }
         else if (iter->type == 5 && !ft_strchar(iter->cmd, ">>"))
         {
             if (tokens->in != -1)
+            {
                 tokens->out = open(iter->cmd, O_RDWR|O_CREAT|O_APPEND, 0664);
-            if (tokens->out == -1)
-                perror(iter->cmd);
+                if (tokens->out == -1)
+                    perror(iter->cmd);
+            }
         }
         // else if (iter->type == 6 && !ft_strchar(iter->cmd, "<<"))
         //     ft_heredoc()

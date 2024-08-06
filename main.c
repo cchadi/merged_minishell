@@ -24,11 +24,12 @@ int main(int ac, char **ar, char **envp)
                 ms = ft_lstnew();
                 forming_list(&ms, shell);
                 execute_cmd(&ms, env, envp, 0);
+                free_shell(&shell);
+                free_ms(&ms);
                 input = readline("minishell$:");
                 add_history(input);
             }
         }
     }
-
     return (0);
 }
