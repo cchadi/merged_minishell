@@ -1,8 +1,16 @@
 #include "minishell.h"
 
+void    ignore(void)
+{
+    int i = 1336;
+
+    i++;
+}
+
+t_env *env;
+
 int main(int ac, char **ar, char **envp)
 {
-    t_env *env;
     t_shell *shell;
     t_ms *ms;
     char *input;
@@ -26,6 +34,9 @@ int main(int ac, char **ar, char **envp)
                 execute_cmd(&ms, env, envp, 0);
                 free_shell(&shell);
                 free_ms(&ms);
+                // signal(EOF, ignore);
+                // signal(SIGQUIT, exit);
+                // signal(SIGINT, minishell);//need to call a function that promts the user with a new shell
                 input = readline("minishell$:");
                 add_history(input);
             }

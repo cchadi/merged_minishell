@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:33:43 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/03 14:25:26 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:43:36 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <string.h>
 # include <stdint.h>
 # include <limits.h>
+#include <signal.h>
 # include <sys/wait.h>
 # include <readline/history.h>
 # include <readline/readline.h>
