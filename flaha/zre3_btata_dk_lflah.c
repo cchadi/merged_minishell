@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:36:58 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/06 14:48:36 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:05:06 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ t_shell *parsing(char *str)
     process_red(tokens);
     sanitize_tokens(tokens);
     remove_quotes(tokens);
-    // expander(tokens);
-    return(free (str), fill_struct(&tokens));
+    expander(tokens);
+    return(free(str), fill_struct(&tokens));
 }
 

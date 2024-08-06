@@ -12,8 +12,8 @@ t_env *env;
 int main(int ac, char **ar, char **envp)
 {
     t_shell *shell;
-    t_ms *ms;
     char *input;
+    t_ms *ms;
 
     (void)ac;
     (void)ar;
@@ -22,7 +22,7 @@ int main(int ac, char **ar, char **envp)
     while(1)
     {
         input = readline("minishell $:");
-        if (input != NULL && input[0] != '\0')
+        if (input != NULL && input[0] != '\0')// need this condition in a function to call it in signal handling
         {
             add_history(input);
             while (input != NULL && input[0] != '\0')
