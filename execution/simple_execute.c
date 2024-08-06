@@ -13,10 +13,8 @@ int	simple_execute(t_ms *e, char **env)
 			dup2(e->infile, 0);
 		if (e->outfile != 1)
 			dup2(e->outfile, 1);
-
 		if (execve(e->cmd, e->arg, env) == -1)
 		{
-			printf("failed to execute!\n");
 			exit(0);
 		}
 	}
