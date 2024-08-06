@@ -28,7 +28,7 @@ int main(int ac, char **ar, char **envp)
             while (input != NULL && input[0] != '\0')
             {
                 shell = NULL;
-                shell = zre3_btata_dk_lflah(input);
+                shell = parsing(input);
                 ms = ft_lstnew();
                 forming_list(&ms, shell);
                 execute_cmd(&ms, env, envp, 0);

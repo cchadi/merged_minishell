@@ -6,7 +6,7 @@
 /*   By: achakour <achakour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:33:43 by achakour          #+#    #+#             */
-/*   Updated: 2024/08/06 14:43:36 by achakour         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:48:50 by achakour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void        process_red(t_a9aw9o3 *cmd);
 void        expander(t_a9aw9o3 *tokens);
 t_shell     *fill_struct(t_a9aw9o3 **cmd);
 int	        ft_charchr(char c, char *find);
-t_shell     *zre3_btata_dk_lflah(char *str);
+t_shell *parsing(char *str);
 int         ft_strchar(char *s, char *find);
 void        sanitize_tokens(t_a9aw9o3 *cmd);
 void	    ft_heredoc(char *del, t_ms **ms);
